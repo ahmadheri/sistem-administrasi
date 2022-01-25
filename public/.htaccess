@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+
+  # Hides the extension of a file
+  Options -Multiviews
+
+  # Turn on the engine for rewriting urls
+  RewriteEngine On
+
+  RewriteBase /sistem-administrasi/public
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>
+
