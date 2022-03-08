@@ -36,7 +36,6 @@ sessionTimeChecked();
                     <h4>Create Report</h4>
                   </div>
 
-                  
                   <div class="card-body">
 
                     <div class="form-group">    

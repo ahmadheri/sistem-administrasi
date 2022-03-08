@@ -199,7 +199,7 @@ class Reports extends Controller
             'korban' => '',
             'deskripsi_kejadian' => '',
             'waktu_dilaporkan' => '',
-            'status' => '',
+            'status_laporan' => '',
             'tindak_pidana' => '',
             'nama_saksi' => '',
             'alamat_saksi' => '',
@@ -238,7 +238,7 @@ class Reports extends Controller
             'korban' => '',
             'deskripsi_kejadian' => '',
             'waktu_dilaporkan' => '',
-            'status' => '',
+            'status_laporan' => '',
             'tindak_pidana' => '',
             'nama_saksi' => '',
             'alamat_saksi' => '',
@@ -276,7 +276,8 @@ class Reports extends Controller
                 'korban' => trim($_POST['korban']),
                 'deskripsi_kejadian' => trim($_POST['deskripsi_kejadian']),
                 'waktu_dilaporkan' => date('Y-m-d H:i:s', strtotime($_POST['waktu_dilaporkan'])),
-                'status' => implode(",", $_POST['status']),
+                // 'status_laporan' => trim($_POST['status_laporan']),
+                'status_laporan' => implode(',', $_POST['status_laporan']),
                 'tindak_pidana' => trim($_POST['tindak_pidana']),
                 'nama_saksi' => trim($_POST['nama_saksi']),
                 'alamat_saksi' => trim($_POST['alamat_saksi']),
@@ -332,7 +333,7 @@ class Reports extends Controller
                 $data['waktuDilaporkanError'] = 'Field Waktu Dilaporkan tidak boleh kosong';
             }
 
-            if (empty($data['status'])) {
+            if (empty($data['status_laporan'])) {
                 $data['statusLaporanError'] = 'Pilih status laporan saat ini';
             }
 

@@ -147,29 +147,57 @@ $page = 'reports';
                     <div class="form-group">
                       <label class="d-block">Status Laporan</label>
                       <div class="form-check">
-                        <input <?php echo $data['report']->status == 'MASUK' ? 'checked' : '' ?> type="radio" class="form-check-input "
-                        id="MASUK" name="status[]" value="MASUK">
+                        <input <?php echo $data['report']->status_laporan == 'MASUK' ? 'checked' : '' ?> type="radio" class="form-check-input "
+                        id="MASUK" name="status_laporan[]" value="MASUK">
                         <label for="MASUK" class="form-check-label">
                           Masuk
                         </label>
                       </div>
                       <div class="form-check">
-                        <input <?php echo $data['report']->status == 'PROSES' ? 'checked' : '' ?> type="radio" class="form-check-input"
-                        id="PROSES" name="status[]" value="PROSES">
-                        <label for="PROSES" class="form-check-label">
-                          Proses
+                        <input <?php echo $data['report']->status_laporan == 'PROSES TAHAP 1' ? 'checked' : '' ?> type="radio" class="form-check-input"
+                        id="PROSES1" name="status_laporan[]" value="PROSES TAHAP 1">
+                        <label for="PROSES1" class="form-check-label">
+                          Proses Tahap 1 (Pengiriman Berkas Perkara ke Kejaksaan)
                         </label>
                       </div>
                       <div class="form-check">
-                        <input <?php echo $data['report']->status == 'SELESAI' ? 'checked' : '' ?> type="radio" class="form-check-input"
-                        id="SELESAI" name="status[]" value="SELESAI">
+                        <input <?php echo $data['report']->status_laporan == 'PROSES - P18' ? 'checked' : '' ?> type="radio" class="form-check-input"
+                        id="PROSES-P18" name="status_laporan[]" value="PROSES - P18">
+                        <label for="PROSES-P18" class="form-check-label">
+                          Proses - P18 (Berkas Perkara Belum Lengkap)
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input <?php echo $data['report']->status_laporan == 'PROSES - P19' ? 'checked' : '' ?> type="radio" class="form-check-input"
+                        id="PROSES-P19" name="status_laporan[]" value="PROSES - P19">
+                        <label for="PROSES-P19" class="form-check-label">
+                          Proses - P19 (Pengembalian Berkas Perkara untuk Dilengkapi)
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input <?php echo $data['report']->status_laporan == 'PROSES - P21' ? 'checked' : '' ?> type="radio" class="form-check-input"
+                        id="PROSES-P21" name="status_laporan[]" value="PROSES - P21">
+                        <label for="PROSES-P21" class="form-check-label">
+                          Proses - P21 (Berkas Perkara Lengkap)
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input <?php echo $data['report']->status_laporan == 'PROSES TAHAP 2' ? 'checked' : '' ?> type="radio" class="form-check-input"
+                        id="PROSES2" name="status_laporan[]" value="PROSES TAHAP 2">
+                        <label for="PROSES2" class="form-check-label">
+                          Proses Tahap 2 (Pelimpahan Tersangka ke Kejaksaan)
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input <?php echo $data['report']->status_laporan == 'SELESAI PUTUSAN' ? 'checked' : '' ?> type="radio" class="form-check-input"
+                        id="SELESAI" name="status_laporan[]" value="SELESAI PUTUSAN">
                         <label for="SELESAI" class="form-check-label">
-                          Selesai
+                          Selesai Putusan
                         </label>
                       </div>
                       <div class="form-check">
-                        <input <?php echo $data['report']->status == 'CANCEL' ? 'checked' : '' ?> type="radio" class="form-check-input"
-                        id="CANCEL" name="status[]" value="CANCEL">
+                        <input <?php echo $data['report']->status_laporan == 'CANCEL' ? 'checked' : '' ?> type="radio" class="form-check-input"
+                        id="CANCEL" name="status_laporan[]" value="CANCEL">
                         <label for="CANCEL" class="form-check-label">
                           Cancel
                         </label>
@@ -177,6 +205,7 @@ $page = 'reports';
                       <div class="invalid-feedback">
                         <?php echo $data['statusLaporanError'] ?>
                       </div>
+
                     </div>
 
                     <div class="form-group">

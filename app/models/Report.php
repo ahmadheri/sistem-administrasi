@@ -12,10 +12,10 @@ class Report
     public function getAllReports()
     {
         $this->db->query(
-            'SELECT reports.id, reports.nama_pelapor, reports.waktu_dilaporkan, reports.status, 
+            'SELECT reports.id, reports.nama_pelapor, reports.waktu_dilaporkan, reports.status_laporan, 
                     cases.tempat_kejadian, cases.waktu_kejadian, cases.pelanggaran 
             FROM reports
-            INNER JOIN cases ON reports.kasus_id=cases.id');
+            INNER JOIN cases ON reports.kasus_id=cases.id ORDER BY reports.waktu_dilaporkan DESC');
         $result = $this->db->resultSet();
 
         return $result;
@@ -71,7 +71,7 @@ class Report
             $this->db->bind(':barang_bukti', $data['barang_bukti']);
 
             $this->db->execute();
-            $lastId = $this->db->getlastInsertId();
+            $lastId = $this->db->getlastInsertId(); // get id of case for kasus_id column
 
             // query insert data to report table
             $this->db->query(
@@ -81,7 +81,7 @@ class Report
                         :nama_saksi, :alamat_saksi, :uraian_kejadian)');
 
             $this->db->bind(':user_id', $data['user_id']);
-            $this->db->bind(':kasus_id', $lastId);
+            $this->db->bind(':kasus_id', $lastId); 
             $this->db->bind(':nama_pelapor', $data['nama_pelapor']);
             $this->db->bind(':pelaku', $data['pelaku']);
             $this->db->bind(':korban', $data['korban']);
@@ -145,7 +145,7 @@ class Report
         //     return false;
         // }
 
-        // BATAS ================================================================
+        // ================================================================
 
         try {
 
@@ -169,24 +169,23 @@ class Report
             $this->db->bind(':barang_bukti', $data['barang_bukti']);
 
             $this->db->execute();
-            $lastId = $this->db->getlastInsertId();
 
             // query insert data to report table
             $this->db->query(
                 'UPDATE reports 
                 SET user_id = :user_id, kasus_id = :kasus_id, nama_pelapor = :nama_pelapor, pelaku = :pelaku,
-                    korban = :korban, waktu_dilaporkan = :waktu_dilaporkan, status = :status, nama_saksi = :nama_saksi, 
+                    korban = :korban, waktu_dilaporkan = :waktu_dilaporkan, status_laporan = :status_laporan, nama_saksi = :nama_saksi, 
                     alamat_saksi = :alamat_saksi, uraian_kejadian = :uraian_kejadian
                 WHERE id = :id');
 
             $this->db->bind(':id', $data['id']);
             $this->db->bind(':user_id', $data['user_id']);
-            $this->db->bind(':kasus_id', $lastId);
+            $this->db->bind(':kasus_id', $data['id']); // use the same id with case id because di insert bersamaan
             $this->db->bind(':nama_pelapor', $data['nama_pelapor']);
             $this->db->bind(':pelaku', $data['pelaku']);
             $this->db->bind(':korban', $data['korban']);
             $this->db->bind(':waktu_dilaporkan', $data['waktu_dilaporkan']);
-            $this->db->bind(':status', $data['status']);
+            $this->db->bind(':status_laporan', $data['status_laporan']);
             $this->db->bind(':nama_saksi', $data['nama_saksi']);
             $this->db->bind(':alamat_saksi', $data['alamat_saksi']);
             $this->db->bind(':uraian_kejadian', $data['uraian_kejadian']);
@@ -236,7 +235,7 @@ class Report
 
     public function countReportStatusMasuk()
     {
-        $this->db->query('SELECT COUNT(status) FROM reports WHERE status="MASUK" ');
+        $this->db->query('SELECT COUNT(status_laporan) FROM reports WHERE status_laporan="MASUK" ');
 
         $result = $this->db->fetchColumn();
 
@@ -245,7 +244,7 @@ class Report
 
     public function countReportStatusProses()
     {
-        $this->db->query('SELECT COUNT(status) FROM reports WHERE status="PROSES" ');
+        $this->db->query('SELECT COUNT(status_laporan) FROM reports WHERE status_laporan="PROSES" ');
 
         $result = $this->db->fetchColumn();
 
@@ -254,7 +253,7 @@ class Report
 
     public function countReportStatusSelesai()
     {
-        $this->db->query('SELECT COUNT(status) FROM reports WHERE status="SELESAI" ');
+        $this->db->query('SELECT COUNT(status_laporan) FROM reports WHERE status_laporan="SELESAI" ');
 
         $result = $this->db->fetchColumn();
 
@@ -263,7 +262,7 @@ class Report
 
     public function countReportStatusCancel()
     {
-        $this->db->query('SELECT COUNT(status) FROM reports WHERE status="CANCEL" ');
+        $this->db->query('SELECT COUNT(status_laporan) FROM reports WHERE status_laporan="CANCEL" ');
 
         $result = $this->db->fetchColumn();
 

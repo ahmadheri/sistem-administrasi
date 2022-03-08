@@ -103,44 +103,35 @@
       Swal.fire("button clicked")
     })
 
-    // Create Form Laporan Validation
-    // $('#create-report').on('click', function(event) {
-    //   if ($('#nama_pelapor').val() == '' || 
-    //   $('#waktu_kejadian').val() == '' || 
-    //   $('#tempat_kejadian').val() == '' ||
-    //   $('#pelanggaran').val() == '' ||
-    //   $('#pelaku').val() == '' ||
-    //   $('#korban').val() == '' ||
-    //   $('#deskripsi_kejadian') == '' ||
-    //   $('#waktu_dilaporkan')== '' ||
-    //   $('#tindak_pidana') == '' ||
-    //   $('#nama_saksi') == '' ||
-    //   $('#alamat_saksi') == '' ||
-    //   $('#barang_bukti') == ''  ||
-    //   $('#uraian_kejadian') == ''
-
-    //   ) {
-    //     event.preventDefault()
-
-    //     Swal.fire({
-    //       icon: 'error',
-    //       title: 'Error',
-    //       text: 'Salah satu input field ada yang kosong, cek ulang form isian Anda',
-    //       showConfirmButton: false,
-    //       showCancelButton: true,
-    //       cancelButtonText: 'Close'
-    //     })
-
-    //   } else {
-    //     form.submit()
-    //   }
-    // })
-
     setTimeout(function() {
       $('.alert').fadeTo(500, 0).slideUp(500, function() {
         $(this).remove()
       });
     }, 3000);
+
+    // Chart
+
+    // var xValues = ["admin", "operator", "user"];
+    // var yValues = [31, 10, 12];
+    // var barColors = ['blue', 'orange', 'brown'];
+
+    // var chart = new Chart('chart', {
+    //   type: 'line',
+    //   data: {
+    //     labels: xValues ,
+    //     datasets: [{
+    //       backgroundColor: barColors,
+    //       data: yValues,
+    //     }]
+    //   },
+    //   options: {
+    //     legend: {display: false},
+    //     title: {
+    //       display: true,
+    //       text: 'Jumlah Role User'
+    //     }
+    //   },
+    // })
 
   });
 

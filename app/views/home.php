@@ -181,6 +181,8 @@ sessionTimeChecked();
 
           </div>
           <!-- row kedua -->
+
+          <canvas id="chart" style="width: 100%; max-width: 700px;"></canvas>
             
         </section>
       </div>

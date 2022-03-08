@@ -21,7 +21,7 @@ sessionTimeChecked();
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Buat Penduduk</h1>
+            <h1>Tambah Penduduk</h1>
           </div>
           <?php
           if (isset($_SESSION['status'])) :

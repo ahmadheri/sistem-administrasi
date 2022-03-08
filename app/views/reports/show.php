@@ -38,7 +38,7 @@ $page = 'reports';
                   <p><strong>Korban :</strong> <?php echo $data['report']->korban ?></p>
                   <p><strong>Deskripsi Kejadian :</strong> <?php echo $data['report']->deskripsi_kejadian ?></p>
                   <p><strong>Waktu Dilaporkan:</strong> <?php echo $data['report']->waktu_dilaporkan ?></p>
-                  <p><strong>Status Laporan:</strong> <?php echo $data['report']->status ?></p>
+                  <p><strong>Status Laporan:</strong> <?php echo $data['report']->status_laporan ?></p>
                   <p><strong>Tindak Pidana:</strong> <?php echo $data['report']->tindak_pidana ?></p>
                   <p><strong>Nama Saksi:</strong> <?php echo $data['report']->nama_saksi ?></p>
                   <p><strong>Alamat Saksi :</strong> <?php echo $data['report']->alamat_saksi ?></p>
