@@ -58,7 +58,7 @@ class Reports extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user_id'])) {
             
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             
             $data = [
                 'residents' => $residents,
@@ -262,7 +262,7 @@ class Reports extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user_id']) ) {
 
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             $data = [
                 'id' => $id,
@@ -383,7 +383,7 @@ class Reports extends Controller
         $report = $this->reportModel->findReportById($id);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user_id'])) {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             
             if($this->reportModel->deleteReport($id)) {
                 header('location: ' . URLROOT . '/reports');

@@ -37,7 +37,7 @@ class Residents extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user_id'])) {
 
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             $data = [
                 'user_id' => intval($_SESSION['user_id']),
@@ -157,7 +157,7 @@ class Residents extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user_id'])) {
 
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             $data = [
                 'id' => $id,
@@ -227,7 +227,7 @@ class Residents extends Controller
         $resident = $this->residentModel->findResidentById($id);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user_id'])) {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             if ($this->residentModel->deleteResident($id)) {
                 header('location: ' . URLROOT . '/residents');
