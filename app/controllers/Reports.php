@@ -10,8 +10,22 @@ class Reports extends Controller
 
     public function index()
     {
+        if (isset($_POST['date1']) && isset($_POST['date2'])) {
+
+            $dateStart = date('Y-m-d', strtotime('-1 days', strtotime($_POST['date1']) )); // minus 1 because in sql don't have it
+            $dateEnd = date('Y-m-d', strtotime('+1 days', strtotime($_POST['date2']) )); // plus 1 for end of date
+            $reports = $this->reportModel->filterByReportCreated($dateStart, $dateEnd);
+        
+            $data = [
+                'reports' => $reports
+            ];
+        
+            $this->view('reports/index', $data);
+        }
+
         // Get all Reports
         $reports = $this->reportModel->getAllReports();
+
 
         $data = [
             'reports' => $reports,
@@ -405,5 +419,18 @@ class Reports extends Controller
         $this->view('reports/print', $data);
     }
 
-   
+    // public function filterByDate($date1, $date2)
+    // {
+    //     $dateStart =  strftime('%A %d %B %Y, %H:%M', strtotime($date1));
+    //     $dateEnd =  strftime('%A %d %B %Y, %H:%M', strtotime($date2));
+        
+    //     $reports = $this->reportModel->filterByReportCreated($dateStart, $dateEnd);
+        
+    //     $data = [
+    //         'reports' => $reports
+    //     ];
+        
+    //     $this->view('reports/index', $data);
+    
+    // }
 }

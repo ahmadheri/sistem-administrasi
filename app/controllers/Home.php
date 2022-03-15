@@ -14,7 +14,8 @@ class Home extends Controller
         $reportCount = $this->reportModel->countReport();
         $residentCount = $this->residentModel->countResident();
         $totalReportsIn = $this->reportModel->countReportStatusMasuk();
-        $totalReportsOnProcess = $this->reportModel->countReportStatusProses();
+        $totalReportsOnProcess1 = $this->reportModel->countReportStatusProses1();
+        $totalReportsOnProcess2 = $this->reportModel->countReportStatusProses2();
         $totalReportsDone = $this->reportModel->countReportStatusSelesai();
         $totalReportsCancel = $this->reportModel->countReportStatusCancel();
 
@@ -23,7 +24,8 @@ class Home extends Controller
             'reportCount' => $reportCount,
             'residentCount' => $residentCount,
             'totalReportsIn' => $totalReportsIn,
-            'totalReportsOnProcess' => $totalReportsOnProcess,
+            'totalReportsOnProcess1' => $totalReportsOnProcess1,
+            'totalReportsOnProcess2' => $totalReportsOnProcess2,
             'totalReportsDone' => $totalReportsDone,
             'totalReportsCancel' => $totalReportsCancel
         ];

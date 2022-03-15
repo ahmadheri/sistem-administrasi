@@ -50,7 +50,23 @@ setlocale(LC_ALL, 'IND.UTF-8');
           </div>
 
           <div class="row">
-            <div class="col-md-12">
+
+            <!-- Filter Data by Report Created -->
+            <div class="col-md-8 mb-2">
+              <h5><b> Filter Berdasarkan Waktu Dilaporkan </b></h5>
+                <form action="<?php echo URLROOT ?>/reports/index"  method="POST">
+                    <label for="">Dari</label>
+                    <input style="width: 35%; display: inline;" type="date" class="form-control" placeholder="Mulai" name="date1" 
+                    value="<?php echo isset($_POST['date1']) ? $POST['date1'] : '' ?>">
+                    <label for="">Sampai</label>
+                    <input style="width: 35%; display: inline;" type="date" class="form-control" placeholder="Sampai" name="date2" 
+                    value="<?php echo isset($_POST['date2']) ? $POST['date2'] : '' ?>">
+                    <button type="submit" class="btn btn-primary"><span class="fas fa-search"></span></button>
+                    <a href="<?php echo URLROOT; ?>/reports"><button type="button" class="btn btn-success"><span class="fas fa-refresh"></span></button></a>
+                </form>
+            </div>
+              
+            <div class="col-md-4">
               <div class="text-right">
 
                 <!-- Button Keterangan Status -->
@@ -58,16 +74,24 @@ setlocale(LC_ALL, 'IND.UTF-8');
                   <i class="fas fa-question"></i>
                   Keterangan Status
                 </button>
-
+                
                 <!-- Button Buat Laporan -->
                 <a href="<?php echo URLROOT ?>/reports/create"> 
-                <button class="btn btn-primary mb-2"><i class="fas fa-file-alt">
-                </i> <span>Buat Laporan</span> </button></a>
-
+                  <button class="btn btn-primary mb-2"><i class="fas fa-file-alt">
+                    </i> <span>Buat Laporan</span> </button></a>
+                    
               </div>
             </div>
+                      
           </div>
           
+          <?php 
+          // var_dump($_POST['date1']);
+          // var_dump($_POST['date2']);
+          // var_dump($);
+          
+          ?>
+
           <div class="card card-table">
             <!-- Table for showing data -->
             <table id="table-data" class="table table-bordered " >
@@ -159,8 +183,6 @@ setlocale(LC_ALL, 'IND.UTF-8');
           </div>
         </div>
       </div>
-
-      
 
 
   <?php

@@ -242,9 +242,18 @@ class Report
         return $result;
     }
 
-    public function countReportStatusProses()
+    public function countReportStatusProses1()
     {
-        $this->db->query('SELECT COUNT(status_laporan) FROM reports WHERE status_laporan="PROSES" ');
+        $this->db->query('SELECT COUNT(status_laporan) FROM reports WHERE status_laporan="PROSES TAHAP 1" ');
+
+        $result = $this->db->fetchColumn();
+
+        return $result;
+    }
+
+    public function countReportStatusProses2()
+    {
+        $this->db->query('SELECT COUNT(status_laporan) FROM reports WHERE status_laporan="PROSES TAHAP 2" ');
 
         $result = $this->db->fetchColumn();
 
@@ -253,7 +262,7 @@ class Report
 
     public function countReportStatusSelesai()
     {
-        $this->db->query('SELECT COUNT(status_laporan) FROM reports WHERE status_laporan="SELESAI" ');
+        $this->db->query('SELECT COUNT(status_laporan) FROM reports WHERE status_laporan="SELESAI PUTUSAN" ');
 
         $result = $this->db->fetchColumn();
 
@@ -320,5 +329,20 @@ class Report
         return $result;
     }
 
+    public function filterByReportCreated($dateStart, $dateEnd)
+    {
 
+        // $this->db->query('SELECT * FROM reports WHERE waktu_dilaporkan BETWEEN :date1 AND :date2 ');
+        $this->db->query(
+            'SELECT reports.id, reports.nama_pelapor, reports.waktu_dilaporkan, reports.status_laporan, 
+                    cases.tempat_kejadian, cases.waktu_kejadian, cases.pelanggaran 
+            FROM reports
+            INNER JOIN cases ON reports.kasus_id=cases.id WHERE waktu_dilaporkan BETWEEN :date1 AND :date2 ORDER BY reports.waktu_dilaporkan DESC');
+        $this->db->bind(':date1', $dateStart);
+        $this->db->bind(':date2', $dateEnd);
+        
+        $result = $this->db->resultSet();
+
+        return $result;
+    }
 }

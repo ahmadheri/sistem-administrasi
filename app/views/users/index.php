@@ -56,7 +56,7 @@ sessionTimeChecked();
           
           ?>
 
-          <canvas id="chart" style="width: 100%; max-width: 700px;"></canvas>
+          <!-- <canvas id="chart" style="width: 100%; max-width: 700px;"></canvas> -->
 
           <div class="row">
             <div class="col-md-12">
@@ -121,29 +121,29 @@ sessionTimeChecked();
 
   // create user chart 
 
-  var xValues = <?php echo json_encode($arrayOfUser) ?>;
-  var yValues = [31, 10, 2, 22];
-  var barColors = ['blue', 'orange', 'brown', 'black'];
+//   var xValues = <?php echo json_encode($arrayOfUser) ?>;
+//   var yValues = [31, 10, 2, 22];
+//   var barColors = ['blue', 'orange', 'brown', 'black'];
 
-  var chart = new Chart('chart', {
-    type: 'line',
-    data: {
-      labels: xValues ,
-      datasets: [{
-        backgroundColor: barColors,
-        data: yValues,
-      }]
-    },
-    options: {
-      legend: {display: false},
-      title: {
-        display: true,
-        text: 'Jumlah Role User'
-      }
-    },
-  })
+//   var chart = new Chart('chart', {
+//     type: 'line',
+//     data: {
+//       labels: xValues ,
+//       datasets: [{
+//         backgroundColor: barColors,
+//         data: yValues,
+//       }]
+//     },
+//     options: {
+//       legend: {display: false},
+//       title: {
+//         display: true,
+//         text: 'Jumlah Role User'
+//       }
+//     },
+//   })
 
-</script>
+// </script>
 
 
   <?php

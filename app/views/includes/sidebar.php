@@ -26,7 +26,7 @@
             echo 'class="active"';
           } ?>><a class="nav-link " href="<?php echo URLROOT; ?>/residents">
           <!-- <i class="fas fa-square"></i> <span>Reports</span></a> -->
-          <i class="fas fa-file-alt"></i> <span>Penduduk</span></a>
+          <i class="fas fa-users"></i> <span>Penduduk</span></a>
       </li>
 
       <!-- hide if role of user is not Admin -->

@@ -114,7 +114,7 @@ sessionTimeChecked();
             <!-- Statistik Laporan Masuk -->
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
-                <div class="card-icon bg-primary">
+                <div class="card-icon bg-info">
                   <i class="far fa-file"></i>
                 </div>
                 <div class="card-wrap">
@@ -128,18 +128,35 @@ sessionTimeChecked();
               </div>
             </div>
 
-            <!-- Statistik Laporan Proses -->
+            <!-- Statistik Laporan Proses Tahap 1 -->
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
-                <div class="card-icon bg-info">
+                <div class="card-icon bg-primary">
                   <i class="far fa-file"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Laporan Proses</h4>
+                    <h4>Laporan Proses Tahap 1</h4>
                   </div>
                   <div class="card-body">
-                    <?php echo $data['totalReportsOnProcess'] ?>
+                    <?php echo $data['totalReportsOnProcess1'] ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Statistik Laporan Proses Tahap 2 -->
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-primary">
+                  <i class="far fa-file"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Laporan Proses Tahap 2</h4>
+                  </div>
+                  <div class="card-body">
+                    <?php echo $data['totalReportsOnProcess2'] ?>
                   </div>
                 </div>
               </div>
@@ -182,7 +199,7 @@ sessionTimeChecked();
           </div>
           <!-- row kedua -->
 
-          <canvas id="chart" style="width: 100%; max-width: 700px;"></canvas>
+          <!-- <canvas id="chart" style="width: 100%; max-width: 700px;"></canvas> -->
             
         </section>
       </div>
