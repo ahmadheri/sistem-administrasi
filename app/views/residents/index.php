@@ -85,7 +85,7 @@ setlocale(LC_ALL, 'IND.UTF-8');
                   <td><?php echo $resident->no_identitas ?></td>
                   <td><?php echo $resident->nama ?></td>
                   <td><?php echo $resident->tempat_lahir ?></td>
-                  <td><?php echo strftime('%A %d %B %Y, %H:%M', strtotime($resident->tanggal_lahir)) ?></td>
+                  <td><?php echo strftime('%A %d %B %Y', strtotime($resident->tanggal_lahir)) ?></td>
                   <td><?php echo $resident->jenis_kelamin ?></td>
                   <td><?php echo $resident->alamat ?></td>
                   <td>
